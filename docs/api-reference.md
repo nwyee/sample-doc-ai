@@ -1,64 +1,116 @@
 # Endpoints
 
-### Endpoint: Create a New User Account
+> _<mark style="color:$success;">Generate complete documentation for these API endpoints: GET /api/users, POST /api/users, PUT /api/users/:id, DELETE /api/users/:id with request/response examples</mark>_
 
-* **URL:** `/api/users`
-* **Method:** `POST`
-* **Auth Required:** No
+### API Endpoints Documentation
 
-#### Request Body
+#### GET /api/users
+
+**Description**: Retrieve a list of all users.
+
+**Request**:
+
+```
+GET /api/users HTTP/1.1
+Host: yourapi.com
+```
+
+**Response**:
 
 ```json
 {
-  "username": "string",
-  "email": "string",
-  "password": "string"
+  "status": "success",
+  "data": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe",
+      "email": "jane@example.com"
+    }
+  ]
 }
 ```
 
-#### Success Response
+#### POST /api/users
 
-* **Code:** `201 Created`
-* **Content:**
-*   ```json
-    {
-      "id": "integer",
-      "username": "string",
-      "email": "string",
-      "createdAt": "string"
-    }
-    ```
+**Description**: Create a new user.
 
-    #### Error Response
+**Request**:
 
-    * **Code:** `400 Bad Request`
-    * **Content:**
-    * ```json
-      {
-        "error": "string"
-      }
-      ```
-      * **Code:** `409 Conflict`
-      * **Content:**
-      *   ```json
-          {
-            "error": "string"
-          }
-          ```
+```
+POST /api/users HTTP/1.1
+Host: yourapi.com
+Content-Type: application/json
 
-          #### Sample Call
+{
+  "name": "John Doe",
+  "email": "john@example.com"
+}
+```
 
-          ```bash
-          curl -X POST "https://api.example.com/api/users" \
-          -H "Content-Type: application/json" \
-          -d '{
-            "username": "johndoe",
-            "email": "johndoe@example.com",
-            "password": "password123"
-          }'
-          ```
+**Response**:
 
-          #### Notes
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+}
+```
 
-          * Ensure secure handling of user passwords.
-          * Usernames and emails must be unique within the system.
+#### PUT /api/users/:id
+
+**Description**: Update an existing user's information by ID.
+
+**Request**:
+
+```
+PUT /api/users/1 HTTP/1.1
+Host: yourapi.com
+Content-Type: application/json
+
+{
+  "name": "John Doe Updated",
+  "email": "johnupdated@example.com"
+}
+```
+
+**Response**:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "1",
+    "name": "John Doe Updated",
+    "email": "johnupdated@example.com"
+  }
+}
+```
+
+#### DELETE /api/users/:id
+
+**Description**: Delete an existing user by ID.
+
+**Request**:
+
+```
+DELETE /api/users/1 HTTP/1.1
+Host: yourapi.com
+```
+
+**Response**:
+
+```json
+{
+  "status": "success",
+  "message": "User deleted successfully"
+}
+```
