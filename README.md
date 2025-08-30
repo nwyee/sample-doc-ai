@@ -1,43 +1,14 @@
-# Sample User API
+# User Management API
 
-A simple REST API for user management, perfect for testing GitBook AI documentation.
+A Node.js REST API for user management operations.
 
-## Quick Start
-
-1. Install dependencies:
-```bash
+## Development Setup
 npm install
-```
+npm start
 
-2. Start the server:
-```bash
-npm run dev
-```
+## Documentation
+Complete user documentation is available at [our GitBook docs](link-to-gitbook).
 
-3. Test the API:
-```bash
-curl http://localhost:3000/health
-```
-
-## API Endpoints
-
-- `GET /health` - Health check
-- `GET /api/users` - Get all users
-- `GET /api/users/:id` - Get user by ID
-- `POST /api/users` - Create new user
-- `PUT /api/users/:id` - Update user
-- `DELETE /api/users/:id` - Delete user
-
-## Testing
-
-Test user creation:
-```bash
-curl -X POST http://localhost:3000/api/users \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "test@example.com",
-    "firstName": "Test",
-    "lastName": "User",
-    "password": "password123"
-  }'
-```
+## Project Structure
+- `src/` - API source code
+- `docs/` - User documentation (synced to GitBook)
