@@ -2,7 +2,38 @@
 
 > _<mark style="color:$success;">Generate complete documentation for these API endpoints: GET /api/users, POST /api/users, PUT /api/users/:id, DELETE /api/users/:id with request/response examples</mark>_
 
-### API Endpoints Documentation
+### API Endpoints
+
+* `GET /health` - Health check
+* `GET /api/users` - Get all users
+* `GET /api/users/:id` - Get user by ID
+* `POST /api/users` - Create new user
+* `PUT /api/users/:id` - Update user
+* `DELETE /api/users/:id` - Delete user
+
+
+
+#### GET /health
+
+**Description**: Check the health status of the API.
+
+**Request**:
+
+```
+GET /health HTTP/1.1
+Host: yourapi.com
+```
+
+**Response**:
+
+* **Status Code**: 200 OK
+*   **Body**:
+
+    ```json
+    {
+      "status": "healthy"
+    }
+    ```
 
 #### GET /api/users
 
@@ -32,6 +63,30 @@ Host: yourapi.com
       "email": "jane@example.com"
     }
   ]
+}
+```
+
+#### GET /api/users/:id
+
+**Description**: Retrieve details of a specific user by their unique ID.
+
+**Request**:
+
+```
+GET /api/users/{id} HTTP/1.1
+Host: yourapi.com
+```
+
+**Response**:
+
+```json
+{
+  "status": "success",
+  "data": {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
 }
 ```
 
